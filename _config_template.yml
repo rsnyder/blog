@@ -1,0 +1,28 @@
+title: Website Title
+
+description: >
+  Website Description (goes in footer).
+
+author:
+  name: Site owner
+  email: site_owner@some_domain.com
+
+nav_pages:
+  # - index.md
+  # - about.md
+
+max-width: 1000px
+
+blog:
+  enabled: true
+  show_excerpts: true
+  show_rss_feed: true
+
+footer:
+  show_github_link: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+contentSelector: main.post-content, div.post-content
