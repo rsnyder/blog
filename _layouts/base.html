@@ -8,6 +8,14 @@
     {%- seo -%}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
     {%- feed_meta -%} 
+    <script>
+      window.jekyll = {site:{baseurl:'{{site.baseurl}}', contentSelector:'{{site.contentSelector}}', github:{owner_name:'{{site.github.owner_name}}',repository_name:'{{site.github.repository_name}}',source:{branch:'{{site.github.source.branch}}'}}},page:{path:'{{page.path}}',dir:'{{page.dir}}',name:'{{page.name}}',contentSelector:'{{page.contentSelector}}'}}
+      const junctureBase = location.hostname === 'localhost' ? 'http://localhost:4000' : 'https://ifc.juncture-digital.org'
+      const junctureStylesheet = document.createElement('link')
+      junctureStylesheet.href = `${junctureBase}/css/index.css`
+      junctureStylesheet.rel = 'stylesheet'
+      document.head.appendChild(junctureStylesheet)
+    </script>
   </head>
 
   <body>
@@ -159,7 +167,6 @@
     
     <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
     <script>
-      const junctureBase = location.hostname === 'localhost' ? 'http://localhost:4000' : 'https://ifc.juncture-digital.org'
 
       window.jekyll = {site:{baseurl:'{{site.baseurl}}', contentSelector:'{{site.contentSelector}}', github:{owner_name:'{{site.github.owner_name}}',repository_name:'{{site.github.repository_name}}',source:{branch:'{{site.github.source.branch}}'}}},page:{path:'{{page.path}}',dir:'{{page.dir}}',name:'{{page.name}}',contentSelector:'{{page.contentSelector}}'}}
       window.ghbase = location.hostname === 'localhost' ? 'schh-commons/website-template/main' : '{{ site.ghbase }}'
@@ -170,11 +177,6 @@
         window.ghbase = `${owner}/${repo}/${branch}`
       }
 
-      let junctureStylesheet = document.createElement('link')
-      junctureStylesheet.href = `${junctureBase}/css/index.css`
-      junctureStylesheet.rel = 'stylesheet'
-      document.head.appendChild(junctureStylesheet)
-      
       let junctureJavascript = document.createElement('script')
       junctureJavascript.src = `${junctureBase}/js/index.js`
       junctureJavascript.type = 'module'
