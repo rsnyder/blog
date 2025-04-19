@@ -7,14 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {%- seo -%}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+    <link rel="stylesheet" href="https://ifc.juncture-digital.org/css/index.css">
     {%- feed_meta -%} 
     <script>
       window.jekyll = {site:{baseurl:'{{site.baseurl}}', contentSelector:'{{site.contentSelector}}', github:{owner_name:'{{site.github.owner_name}}',repository_name:'{{site.github.repository_name}}',source:{branch:'{{site.github.source.branch}}'}}},page:{path:'{{page.path}}',dir:'{{page.dir}}',name:'{{page.name}}',contentSelector:'{{page.contentSelector}}'}}
-      const junctureBase = location.hostname === 'localhost' ? 'http://localhost:4000' : 'https://ifc.juncture-digital.org'
-      const junctureStylesheet = document.createElement('link')
-      junctureStylesheet.href = `${junctureBase}/css/index.css`
-      junctureStylesheet.rel = 'stylesheet'
-      document.head.appendChild(junctureStylesheet)
     </script>
   </head>
 
