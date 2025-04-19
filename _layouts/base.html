@@ -169,7 +169,8 @@
         let branch = window.jekyll.site.github.source.branch
         window.ghbase = `${owner}/${repo}/${branch}`
       }
-        
+
+      let junctureStylesheet = document.createElement('link')
       junctureStylesheet.href = `${junctureBase}/css/index.css`
       junctureStylesheet.rel = 'stylesheet'
       document.head.appendChild(junctureStylesheet)
