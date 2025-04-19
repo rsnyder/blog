@@ -8,8 +8,8 @@ author:
   email: site_owner@some_domain.com
 
 nav_pages:
-  # - index.md
-  # - about.md
+  - index.md
+  - about.md
 
 max-width: 1000px
 
