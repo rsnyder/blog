@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {%- seo -%}
+    {%- feed_meta -%} 
     <script id="loader" src="https://www.juncture-digital.io/js/juncture.js" data-ghbase="{{site.github.owner_name}}/{{site.github.repository_name}}/{{site.github.source.branch}}/{{page.path}}"></script>
   </head>
 
@@ -14,20 +15,20 @@
     <header class="site-header">
       <div class="wrapper">
 
+        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+
         {% include search-lunr.html %}
 
         {% capture nav_items_string %}
           {% for nav_path in site.nav_pages %}
             {% assign nav_item = nil %}
         
-            {%- comment -%} Check site.pages {%- endcomment -%}
             {% for page in site.pages %}
               {% if page.path == nav_path %}
                 {% assign nav_item = page %}
               {% endif %}
             {% endfor %}
         
-            {%- comment -%} If not found, check collections {%- endcomment -%}
             {% if nav_item == nil %}
               {% for collection in site.collections %}
                 {% for doc in collection.docs %}
