@@ -6,12 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {%- seo -%}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
-    <link rel="stylesheet" href="https://www.juncture-digital.io/css/index.css">
-    {%- feed_meta -%} 
-    <script>
-      window.jekyll = {site:{baseurl:'{{site.baseurl}}', contentSelector:'{{site.contentSelector}}', github:{owner_name:'{{site.github.owner_name}}',repository_name:'{{site.github.repository_name}}',source:{branch:'{{site.github.source.branch}}'}}},page:{path:'{{page.path}}',dir:'{{page.dir}}',name:'{{page.name}}',contentSelector:'{{page.contentSelector}}'}}
-    </script>
+    <script id="loader" src="https://www.juncture-digital.io/js/juncture.js" data-ghbase="{{site.github.owner_name}}/{{site.github.repository_name}}/{{site.github.source.branch}}/{{page.path}}"></script>
   </head>
 
   <body>
@@ -19,8 +14,7 @@
     <header class="site-header">
       <div class="wrapper">
 
-        {%- comment -%} {% include search-lunr.html %} {%- endcomment -%}
-        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+        {% include search-lunr.html %}
 
         {% capture nav_items_string %}
           {% for nav_path in site.nav_pages %}
@@ -65,13 +59,7 @@
                 {% assign url = parts[0] | strip %}
                 {% assign title = parts[1] | strip %}
                 {% if url and title %}
-                  {%- if title == 'Blog' %}
-                    {% if site.blog.enabled %}
-                      <a class="nav-item" href="{{ url | relative_url }}">{{ title | escape }}</a>
-                    {%- endif -%}
-                  {% else %}
-                    <a class="nav-item" href="{{ url | relative_url }}">{{ title | escape }}</a>
-                  {%- endif -%}
+                  <a class="nav-item" href="{{ url | relative_url }}">{{ title | escape }}</a>
                 {% endif %}
               {% endfor %}
             </div>
@@ -83,13 +71,7 @@
               {% assign url = parts[0] | strip %}
               {% assign title = parts[1] | strip %}
               {% if url and title %}
-                {%- if title == 'Blog' %}
-                  {% if site.blog.enabled %}
-                    <a class="nav-item" href="{{ url | relative_url }}">{{ title | escape }}</a>
-                  {%- endif -%}
-                {% else %}
-                  <a class="nav-item" href="{{ url | relative_url }}">{{ title | escape }}</a>
-                {%- endif -%}
+                <a class="nav-item" href="{{ url | relative_url }}">{{ title | escape }}</a>
               {% endif %}
             {% endfor %}
           </div>
@@ -128,19 +110,6 @@
             {%- endif %}
           {%- endif %}
 
-          <!--
-          {%- if site.author %}
-            <ul class="contact-list">
-              {% if site.author.name -%}
-                <li class="p-name">{{ site.author.name | escape }}</li>
-              {% endif -%}
-              {% if site.author.email -%}
-                <li><a class="u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-              {%- endif %}
-            </ul>
-          {%- endif %}
-          -->
-
           </div>
           <div class="footer-col">
             <p>{{ site.description | escape }}</p>
@@ -161,16 +130,14 @@
     
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
-    <script src="https://www.juncture-digital.io/js/index.js" type="module"></script>
+    <!-- Juncture -->
     <script>
-      maxWidth = maxWidth || '{{ site.max-width }}'
-      if (maxWidth) {
-        document.querySelectorAll('.site-header .wrapper, .site-footer .wrapper, .page-content .wrapper').forEach((el) => {
-          el.style.maxWidth = maxWidth === 'full' ? 'unset' : maxWidth
-        })
-      }
+      (function() {
+        maxWidth = maxWidth || '{{ site.max-width }}'
+        if (maxWidth) document.querySelectorAll('.site-header .wrapper, .site-footer .wrapper, .page-content .wrapper').forEach((el) => el.style.maxWidth = maxWidth === 'full' ? 'unset' : maxWidth)
+      })();
     </script>
+
   </body>
 
 </html>
