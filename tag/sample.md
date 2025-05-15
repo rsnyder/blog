@@ -6,5 +6,3 @@ robots: noindex
 ---
 
 Description for posts with Sample tag.
-
----

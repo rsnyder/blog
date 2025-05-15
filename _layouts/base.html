@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {%- seo -%}
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
     {%- feed_meta -%} 
     <script id="loader" src="https://www.juncture-digital.io/js/juncture.js" data-ghbase="{{site.github.owner_name}}/{{site.github.repository_name}}/{{site.github.source.branch}}/{{page.path}}"></script>
   </head>
@@ -15,20 +16,22 @@
     <header class="site-header">
       <div class="wrapper">
 
-        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-
+        <a class="site-title" rel="author" href="{{ '/' | relative_url }}"><img src="/favicon.ico"> {{ site.title | escape }}</a>
+        
         {% include search-lunr.html %}
 
         {% capture nav_items_string %}
           {% for nav_path in site.nav_pages %}
             {% assign nav_item = nil %}
         
+            {%- comment -%} Check site.pages {%- endcomment -%}
             {% for page in site.pages %}
               {% if page.path == nav_path %}
                 {% assign nav_item = page %}
               {% endif %}
             {% endfor %}
         
+            {%- comment -%} If not found, check collections {%- endcomment -%}
             {% if nav_item == nil %}
               {% for collection in site.collections %}
                 {% for doc in collection.docs %}
@@ -97,8 +100,8 @@
         <div class="footer-col-wrapper">
           <div class="footer-col">
           
-          {%- if page.title == 'Blog' %}
-            {%- if site.blog.show_rss_feed %}
+          {%- if page.layout == 'content' %}
+            {%- if site.show_rss_feed %}
               <a href="{{ site.feed.path | default: 'feed.xml' | absolute_url }}">
                 <svg class="svg-icon orange">
                   <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
@@ -131,11 +134,14 @@
     
     </footer>
     
-    <!-- Juncture -->
     <script>
       (function() {
         maxWidth = maxWidth || '{{ site.max-width }}'
-        if (maxWidth) document.querySelectorAll('.site-header .wrapper, .site-footer .wrapper, .page-content .wrapper').forEach((el) => el.style.maxWidth = maxWidth === 'full' ? 'unset' : maxWidth)
+        if (maxWidth) {
+          document.querySelectorAll('.site-header .wrapper, .site-footer .wrapper, .page-content .wrapper').forEach((el) => {
+            el.style.maxWidth = maxWidth === 'full' ? 'unset' : maxWidth
+          })
+        }
       })();
     </script>
 

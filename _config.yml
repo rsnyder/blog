@@ -1,23 +1,34 @@
 title: Website Title
 
-description: >
-  Website Description (goes in footer).
+description: Website Description (goes in footer).
 
 author:
-  name: Site owner
+  name: Site owner name
   email: site_owner@some_domain.com
+
+github:
+  owner_name: gh-owner
+  repository_name: gh-repo
+  source:
+    branch: main
 
 nav_pages:
   - index.md
   - about.md
-  - blog.md
+  # - podcasts.md
+  - contact.md
 
+collections:
+  articles:
+    output: true
+    permalink: /:collection/:path/
+  podcasts:
+    output: true
+    permalink: /:collection/:path/
+
+show_excerpts: true
+show_rss_feed: true
 max-width: 1000px
-
-blog:
-  enabled: true
-  show_excerpts: true
-  show_rss_feed: true
 
 footer:
   show_github_link: true
@@ -25,5 +36,3 @@ footer:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
-contentSelector: main.post-content, div.post-content
