@@ -1,6 +1,6 @@
 ---
 title: Monument Valley
-description: Example Juncture article about **Monument Valley**, a region of the Colorado Plateau characterized by a cluster of sandstone buttes.
+description: Example Juncture article about Monument Valley, a region of the Colorado Plateau characterized by a cluster of sandstone buttes.
 author: Ron Snyder
 date: 2025-01-01
 layout: post
