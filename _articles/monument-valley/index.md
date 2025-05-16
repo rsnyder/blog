@@ -4,8 +4,6 @@ description: Example Juncture article about Monument Valley, a region of the Col
 author: Ron Snyder
 date: 2025-01-01
 layout: post
-background:
-  image: "wc:Monument_Valley_banner.jpg"
 thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Monument_Valley%2C_Utah%2C_USA.jpg/330px-Monument_Valley%2C_Utah%2C_USA.jpg"
 permalink: /monument-valley
 tags: sample
@@ -21,7 +19,7 @@ published: true
   iframe.right + p { margin-top: 0; }
 </style>
 
-`header title="{{ page.title }}" author="{{ page.author }}" img={{ page.background.image }} height={{ page.background.height | default: 250 }} position={{ page.background.position | default: center }} size={{ page.background.size | default: cover }} alpha={{ page.background.alpha | default: 0.4}}` 
+`header title="Monument Valley" author="Ron Snyder" img=wc:Monument_Valley_banner.jpg` 
 
 `image #image src=wc:Monument_Valley,_Utah,_USA.jpg caption="Monument Valley" cover .right .shadow`
 
