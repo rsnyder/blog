@@ -7,8 +7,8 @@ author:
   email: site_owner@some_domain.com
 
 github:
-  owner_name: gh-owner
-  repository_name: gh-repo
+  owner_name: rsnyder
+  repository_name: blog
   source:
     branch: main
 
