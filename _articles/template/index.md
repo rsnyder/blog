@@ -2,7 +2,7 @@
 title: 
 description: 
 author: 
-date: yyyy-mm-dd
+date: 2025-01-01
 tags: 
 thumbnail: 
 permalink: 
