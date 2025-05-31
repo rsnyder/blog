@@ -4,7 +4,7 @@ description: A test article
 author: Ron Snyder
 date: 2025-01-01
 tags: simple
-thumbnail: 
+thumbnail: test.jpg
 permalink: 
 layout: post
 published: true
