@@ -5,7 +5,7 @@ author: Ron Snyder
 date: 2025-01-01
 tags: simple
 thumbnail: test.jpg
-permalink: 
+permalink: /test
 layout: post
 published: true
 ---
