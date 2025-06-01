@@ -12,6 +12,4 @@ published: true
 
 # Heading 1
 
-![](test.jpg)
-
 `image src=test.jpg`
